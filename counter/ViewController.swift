@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         textResult.text = "История изменений:"
         textResult.isEditable = false
         textResult.isSelectable = false
+        textResult.isScrollEnabled = true
         // Do any additional setup after loading the view.
     }
     func convertDate() -> String {
