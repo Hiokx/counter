@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusBotton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var fieldResult: UITextField!
+    @IBOutlet weak var textResult: UITextView!
     var count : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        textResult.text = "История изменений:"
+        textResult.isEditable = false
+        textResult.isSelectable = false
         // Do any additional setup after loading the view.
     }
     func convertDate() -> String {
@@ -30,22 +34,22 @@ class ViewController: UIViewController {
     @IBAction func pressPlus(_ sender: Any) {
         count += 1
         counterLabel.text = "Значение счётчика:\(count)"
-        fieldResult.text = "\(convertDate()) : значение +1"
+        textResult.text = "\(convertDate()) : значение изменено на  +1"
     }
     @IBAction func pressMinus(_ sender: Any) {
         count -= 1
         if count < 0 {
             counterLabel.text = "Значение счётчика:\(count)"
-            fieldResult.text = "\(convertDate()) : значение < 0"
+            textResult.text = "\(convertDate()) : попытка уменьшить значение счётчика ниже 0"
         } else {
             counterLabel.text = "Значение счётчика:\(count)"
-            fieldResult.text = "\(convertDate()) : значение -1"
+            textResult.text = "\(convertDate()) : значение изменено на  -1"
         }
     }
     @IBAction func pressClear(_ sender: Any) {
         count = 0
         counterLabel.text = "Значение счётчика:\(count)"
-        fieldResult.text = "\(convertDate()) : значение сброшено"
+        textResult.text = "\(convertDate()) : значение сброшено"
     }
 }
 
